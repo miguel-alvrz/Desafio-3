@@ -5,4 +5,7 @@ export class ProductPage {
     ).click();
     cy.get("#closeModal").click();
   }
+  irAlCarrito(){
+    cy.get("#goShoppingCart").click();
+  }
 }

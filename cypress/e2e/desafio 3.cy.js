@@ -6,6 +6,7 @@ import { ShoppingCartPage } from "../support/pages/shoppingCartPage";
 describe("Desafio 3", () => {
   let data;
   let productos;
+  let precioFinal;
   const loginPage = new LoginPage();
   const productsPage = new ProductPage();
   const shoppingCartPage = new ShoppingCartPage();
@@ -17,6 +18,7 @@ describe("Desafio 3", () => {
 
     cy.fixture("productos").then((productList) => {
       productos = productList.productos;
+      precioFinal = productList.precioFinal;
     });
   });
 
@@ -33,7 +35,9 @@ describe("Desafio 3", () => {
   it("Seleccion de productos, Verificacion de productos", () => {
     productsPage.agregarProducto(productos[0].nombre, productos[0].precio);
     productsPage.agregarProducto(productos[1].nombre, productos[1].precio);
+    productsPage.irAlCarrito();
     shoppingCartPage.verificarCarrito(productos);
-    shoppingCartPage.verificarPrecioFinal(productos);
+    shoppingCartPage.irAlDetalle();
+    shoppingCartPage.verificarPrecioFinal(precioFinal);
   });
 });
