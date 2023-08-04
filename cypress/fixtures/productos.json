@@ -1,0 +1,7 @@
+{
+  "productos": [
+    { "nombre": "Black T-Shirt", "precio": "15" },
+    { "nombre": "White Pants", "precio": "20" }
+  ],
+  "precioFinal": "35"
+}
